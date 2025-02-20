@@ -14,8 +14,6 @@ Java-based web scraping application built with Spring Boot. It allows you to cra
 - [Building and Running](#building-and-running)
 - [Docker Setup](#docker-setup)
 - [Dependencies](#dependencies)
-- [License](#license)
-
 ---
 
 ## Features
@@ -98,8 +96,7 @@ Key configuration properties are found in `src/main/resources/application.yml`:
   jpeg:
     compression:
       quality: 0.8
-  ```
-
+- Saved images path: WebScraper/compressed-images/**
 ---
 
 ## API Endpoints
@@ -109,12 +106,12 @@ The application exposes REST endpoints under `/api`:
 ### **Start Scraping**
 
 - **Endpoint:** `POST /api/start`
-- **Description:** Initiates a new scraping session.
+- **Description:** Initiates a new scraping session. If requestDelay (in milliseconds) > 0 the scraper will work with a delay to avoid blockages, if requestDelay = 0 the scraper will work async. recursionDepth - max crawling depth. If necessary, you can add a proxy 
 - **Request Body:**
 
   ```json
   {
-    "url": "https://example.com",
+    "url": "https://stocksnap.io/",
     "recursionDepth": 6,
     "requestDelay": 0,
     "proxies": []
