@@ -1,0 +1,14 @@
+crawler:
+  linkPoolSize: 10
+  imagePoolSize: 10
+spring:
+  application:
+    name: WebScraper
+  datasource:
+    url: jdbc:postgresql://localhost:5432/scraper
+    username: postgres
+    password: postgres
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
