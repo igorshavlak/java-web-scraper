@@ -97,8 +97,6 @@ Key configuration properties are found in `src/main/resources/application.yml`:
     compression:
       quality: 0.8
 - Saved images path: WebScraper/compressed-images/**
-  ```
-
 ---
 
 ## API Endpoints
