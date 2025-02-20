@@ -14,8 +14,6 @@ Java-based web scraping application built with Spring Boot. It allows you to cra
 - [Building and Running](#building-and-running)
 - [Docker Setup](#docker-setup)
 - [Dependencies](#dependencies)
-- [License](#license)
-
 ---
 
 ## Features
@@ -109,7 +107,7 @@ The application exposes REST endpoints under `/api`:
 ### **Start Scraping**
 
 - **Endpoint:** `POST /api/start`
-- **Description:** Initiates a new scraping session.
+- **Description:** Initiates a new scraping session. If requestDelay > 0 the scraper will work with a delay to avoid blockages, if requestDelay = 0 the scraper will work async. recursionDepth - max crawling depth. 
 - **Request Body:**
 
   ```json
