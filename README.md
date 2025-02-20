@@ -96,6 +96,7 @@ Key configuration properties are found in `src/main/resources/application.yml`:
   jpeg:
     compression:
       quality: 0.8
+- Saved images path: WebScraper/compressed-images/**
   ```
 
 ---
