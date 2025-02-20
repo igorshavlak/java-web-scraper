@@ -26,7 +26,6 @@ public class DocumentServiceImpl implements DocumentService {
 
     /**
      * Fetches the document from the given URL using the provided proxy.
-     * <p>
      * This method is retryable in case of IO, Socket, or HTTP status exceptions.
      *
      * @param url   the URL to fetch
@@ -36,7 +35,7 @@ public class DocumentServiceImpl implements DocumentService {
      */
     @Retryable(
             value = { IOException.class, SocketException.class, HttpStatusException.class },
-            maxAttempts = 4,
+            maxAttempts = 2,
             backoff = @Backoff(delay = 2000, multiplier = 2)
     )
     @Override
