@@ -86,7 +86,8 @@ public class ScraperServiceImpl implements ScraperService {
 
         long delay = determineDelay(session);
         if (delay > 0) {
-            session.setRateLimiter(RateLimiter.create(delay));
+            double permitsPerSecond = 1000.0 / delay;
+            session.setRateLimiter(RateLimiter.create(permitsPerSecond));
             log.info("RateLimiter set with permitsPerSecond: {}", delay);
         }
 
