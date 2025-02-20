@@ -111,7 +111,7 @@ The application exposes REST endpoints under `/api`:
 
   ```json
   {
-    "url": "https://example.com",
+    "url": "https://stocksnap.io/",
     "recursionDepth": 6,
     "requestDelay": 0,
     "proxies": []
