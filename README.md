@@ -106,7 +106,7 @@ The application exposes REST endpoints under `/api`:
 ### **Start Scraping**
 
 - **Endpoint:** `POST /api/start`
-- **Description:** Initiates a new scraping session. If requestDelay (in milliseconds) > 0 the scraper will work with a delay to avoid blockages, if requestDelay = 0 the scraper will work async. recursionDepth - max crawling depth. 
+- **Description:** Initiates a new scraping session. If requestDelay (in milliseconds) > 0 the scraper will work with a delay to avoid blockages, if requestDelay = 0 the scraper will work async. recursionDepth - max crawling depth. If necessary, you can add a proxy 
 - **Request Body:**
 
   ```json
