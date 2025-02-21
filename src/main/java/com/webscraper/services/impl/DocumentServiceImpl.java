@@ -60,6 +60,10 @@ public class DocumentServiceImpl implements DocumentService {
                 log.warn("Non-retryable HTTP 404 for URL: {}", url);
                 throw new NonRetryableException("404 Not Found: " + url, e);
             }
+            if(e.getStatusCode() == 400) {
+                log.warn("Non-retryable HTTP 400 for URL: {}", url);
+                throw new NonRetryableException("400 Bad Request: " + url, e);
+            }
             if (e.getStatusCode() == 429 || e.getStatusCode() == 502) {
                 log.warn("Retryable HTTP error {} for URL: {}", e.getStatusCode(), url);
                 throw e;

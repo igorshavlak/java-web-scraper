@@ -141,12 +141,7 @@
         @Override
         public String prepareImageUrl(String imageUrl) {
             try {
-                String decodedUrl = URLDecoder.decode(imageUrl, StandardCharsets.UTF_8);
-                int paramIndex = decodedUrl.indexOf("?");
-                if (paramIndex > 0) {
-                    decodedUrl = decodedUrl.substring(0, paramIndex);
-                }
-                return decodedUrl;
+                return URLDecoder.decode(imageUrl, StandardCharsets.UTF_8);
             } catch (Exception ex) {
                 log.warn("Failed to decode URL: {}. Using original.", imageUrl, ex);
                 return imageUrl;
