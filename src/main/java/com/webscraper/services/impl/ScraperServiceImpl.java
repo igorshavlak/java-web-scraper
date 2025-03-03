@@ -96,7 +96,10 @@ public class ScraperServiceImpl implements ScraperService {
 
         activeSessions.put(sessionId, crawlingFuture);
 
-        CompletableFuture<Set<String>> resultFuture = crawlingFuture.thenApply(v -> Collections.unmodifiableSet(session.getVisitedLinksUrl()));
+        CompletableFuture<Set<String>> resultFuture = crawlingFuture.thenApplyAsync(
+                v -> Collections.unmodifiableSet(session.getVisitedLinksUrl()),
+                linkExecutor
+        );
 
         resultFuture.whenComplete((result, throwable) -> {
             activeSessions.remove(sessionId);

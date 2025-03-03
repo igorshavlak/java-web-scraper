@@ -84,7 +84,7 @@ public class ScraperEngine {
                         throw new CompletionException(e);
                     }
                 }, linkExecutor)
-                .thenCompose(document -> processDocument(document, session, currentDepth))
+                .thenComposeAsync(document -> processDocument(document, session, currentDepth),linkExecutor)
                 .exceptionally(ex -> {
                     log.error("Error processing URL: {}. Error: {}", normalizedUrl, ex.getMessage());
                     return null;
