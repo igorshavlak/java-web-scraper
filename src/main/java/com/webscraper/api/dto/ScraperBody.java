@@ -1,5 +1,7 @@
-package com.webscraper.entities;
+package com.webscraper.api.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,9 +16,14 @@ import java.util.List;
 @NoArgsConstructor
 public class ScraperBody {
 
-    private String title;
+    @NotBlank(message = "URL cannot be empty")
     private String url;
+
+    @Min(value = 0, message = "The depth of recursion cannot be negative")
     private int recursionDepth;
-    private Long requestDelay;
+
+    @Min(value = 0, message = "Request delay cannot be negative")
+    private long requestDelay;
+
     private List<String> proxies;
 }

@@ -1,19 +1,15 @@
 package com.webscraper.services;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-import com.google.common.util.concurrent.RateLimiter;
-import com.webscraper.entities.ImageEntity;
-import com.webscraper.entities.ProxyInfo;
-import com.webscraper.entities.ScraperSession;
-import com.webscraper.repositories.ImageRepository;
-import com.webscraper.services.DocumentService;
-import com.webscraper.services.ProxySelectorService;
-import com.webscraper.services.RobotsTxtService;
-import com.webscraper.services.handlers.ContentHandler;
-import com.webscraper.services.impl.ScraperServiceImpl;
+import com.webscraper.application.ports.DocumentService;
+import com.webscraper.application.ports.RobotsTxtService;
+import com.webscraper.infrastructure.db.entities.ImageEntity;
+import com.webscraper.domain.entities.ProxyInfo;
+import com.webscraper.infrastructure.db.repositories.ImageRepository;
+import com.webscraper.application.handlers.ContentHandler;
+import com.webscraper.application.services.ScraperServiceImpl;
 import crawlercommons.robots.BaseRobotRules;
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -22,10 +18,9 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import org.junit.jupiter.api.AfterAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 public class ScraperServiceImplTest {
 

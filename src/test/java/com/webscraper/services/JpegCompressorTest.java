@@ -1,7 +1,7 @@
 package com.webscraper.services;
 
-import com.webscraper.entities.CompressionResult;
-import com.webscraper.utils.JpegCompressor;
+import com.webscraper.domain.entities.CompressionResult;
+import com.webscraper.infrastructure.image.ImageCompressor;
 import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
@@ -29,7 +29,7 @@ public class JpegCompressorTest {
 
         Path tempDir = Files.createTempDirectory("jpeg-compressor-test");
 
-        JpegCompressor compressor = new JpegCompressor();
+        ImageCompressor compressor = new ImageCompressor();
 
         CompressionResult result = compressor.compressAndSave(imageBytes, tempDir);
         assertNotNull(result, "Результат стиснення не повинен бути null.");
@@ -50,7 +50,7 @@ public class JpegCompressorTest {
 
         Path tempDir = Files.createTempDirectory("jpeg-compressor-test");
 
-        JpegCompressor compressor = new JpegCompressor();
+        ImageCompressor compressor = new ImageCompressor();
 
         CompressionResult result = compressor.compressAndSave(imageBytes, tempDir);
         assertNotNull(result, "Результат стиснення не повинен бути null.");

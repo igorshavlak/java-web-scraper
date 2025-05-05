@@ -1,6 +1,6 @@
 package com.webscraper.services;
 
-import com.webscraper.entities.ProxyInfo;
+import com.webscraper.domain.entities.ProxyInfo;
 import com.webscraper.services.impl.RoundRobinProxySelectorService;
 import org.junit.jupiter.api.Test;
 

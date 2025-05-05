@@ -1,5 +1,6 @@
 package com.webscraper.utils;
 
+import com.webscraper.infrastructure.utils.LinkExtractorUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LinkExtractorTest {
+public class LinkExtractorUtilTest {
 
     @Test
     public void testExtractLinksExcludesImageLinks() {
@@ -22,7 +23,7 @@ public class LinkExtractorTest {
                 "</html>";
 
         Document doc = Jsoup.parse(html, "http://example.com");
-        Set<String> links = LinkExtractor.extractLinks(doc);
+        Set<String> links = LinkExtractorUtil.extractLinks(doc);
 
         assertTrue(links.contains("http://example.com/page1"));
         assertTrue(links.contains("http://example.com/page2"));
@@ -40,7 +41,7 @@ public class LinkExtractorTest {
                 "  </body>" +
                 "</html>";
         Document doc = Jsoup.parse(html, "http://example.com");
-        Set<String> images = LinkExtractor.extractImages(doc);
+        Set<String> images = LinkExtractorUtil.extractImages(doc);
 
         assertTrue(images.contains("http://example.com/images/img1.png"));
         assertTrue(images.contains("http://example.com/images/img2.jpg"));
@@ -60,7 +61,7 @@ public class LinkExtractorTest {
                 "  </body>" +
                 "</html>";
         Document doc = Jsoup.parse(html, "http://example.com");
-        Set<String> cssImages = LinkExtractor.extractCssImages(doc);
+        Set<String> cssImages = LinkExtractorUtil.extractCssImages(doc);
 
         assertTrue(cssImages.contains("http://example.com/css/bg.jpg"));
         assertTrue(cssImages.contains("http://example.com/images/pattern.png"));
@@ -77,7 +78,7 @@ public class LinkExtractorTest {
                 "  </body>" +
                 "</html>";
         Document doc = Jsoup.parse(html, "http://example.com");
-        Set<String> anchorImages = LinkExtractor.extractAnchorImageLinks(doc);
+        Set<String> anchorImages = LinkExtractorUtil.extractAnchorImageLinks(doc);
 
         assertTrue(anchorImages.contains("http://example.com/img/photo.jpeg"));
         assertTrue(anchorImages.contains("http://example.com/assets/logo.gif"));
@@ -93,7 +94,7 @@ public class LinkExtractorTest {
                 "  </body>" +
                 "</html>";
         Document doc = Jsoup.parse(html, "http://example.com");
-        Set<String> cssImages = LinkExtractor.extractCssImages(doc);
+        Set<String> cssImages = LinkExtractorUtil.extractCssImages(doc);
         assertTrue(cssImages.isEmpty());
     }
 }

@@ -1,6 +1,6 @@
-package com.webscraper.services.strategy;
+package com.webscraper.infrastructure.image.strategy;
 
-import com.webscraper.services.ImageProcessingService;
+import com.webscraper.application.ports.ImageProcessingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

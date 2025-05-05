@@ -1,4 +1,4 @@
-package com.webscraper.configs;
+package com.webscraper.infrastructure.db.configs;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

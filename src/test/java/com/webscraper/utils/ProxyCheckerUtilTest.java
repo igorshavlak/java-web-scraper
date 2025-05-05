@@ -1,6 +1,7 @@
 package com.webscraper.utils;
 
-import com.webscraper.entities.ProxyInfo;
+import com.webscraper.domain.entities.ProxyInfo;
+import com.webscraper.infrastructure.utils.ProxyCheckerUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,11 +9,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProxyCheckerServiceTest {
+class ProxyCheckerUtilTest {
 
     @Test
     void testFilterWorkingProxies_NullList() {
-        List<ProxyInfo> result = ProxyCheckerService.filterWorkingProxies(null);
+        List<ProxyInfo> result = ProxyCheckerUtil.filterWorkingProxies(null);
         assertNull(result, "При передачі null повинен повертатися null");
     }
 
@@ -20,7 +21,7 @@ class ProxyCheckerServiceTest {
     void testFilterWorkingProxies_EmptyList() {
 
         List<ProxyInfo> proxies = new ArrayList<>();
-        List<ProxyInfo> result = ProxyCheckerService.filterWorkingProxies(proxies);
+        List<ProxyInfo> result = ProxyCheckerUtil.filterWorkingProxies(proxies);
         assertTrue(result.isEmpty(), "При передачі порожнього списку повинен повертатися порожній список");
     }
 
@@ -31,7 +32,7 @@ class ProxyCheckerServiceTest {
         List<ProxyInfo> proxies = new ArrayList<>();
         proxies.add(invalidProxy);
 
-        List<ProxyInfo> result = ProxyCheckerService.filterWorkingProxies(proxies);
+        List<ProxyInfo> result = ProxyCheckerUtil.filterWorkingProxies(proxies);
         assertTrue(result.isEmpty(), "Недоступний проксі повинен бути відфільтрований");
     }
 
@@ -42,7 +43,7 @@ class ProxyCheckerServiceTest {
         List<ProxyInfo> proxies = new ArrayList<>();
         proxies.add(validProxy);
 
-        List<ProxyInfo> result = ProxyCheckerService.filterWorkingProxies(proxies);
+        List<ProxyInfo> result = ProxyCheckerUtil.filterWorkingProxies(proxies);
         assertFalse(result.isEmpty(), "Робочий проксі не повинен бути відфільтрований");
     }
 

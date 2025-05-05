@@ -1,4 +1,4 @@
-package com.webscraper.configs;
+package com.webscraper.infrastructure.db.configs;
 
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
@@ -11,9 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * Configuration class for creating a customized RestTemplate bean.
- * <p>
  * This configuration sets up a connection pool and custom timeouts for HTTP requests.
- * </p>
  */
 @Configuration
 public class RestTemplateConfig {

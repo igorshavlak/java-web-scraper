@@ -1,4 +1,4 @@
-package com.webscraper.configs;
+package com.webscraper.infrastructure.db.configs;
 
 import org.springframework.context.annotation.Configuration;
 

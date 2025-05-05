@@ -1,9 +1,8 @@
 package com.webscraper.services;
 
 
-import com.webscraper.services.impl.RobotsTxtServiceImpl;
+import com.webscraper.infrastructure.http.RobotsTxtServiceImpl;
 import crawlercommons.robots.BaseRobotRules;
-import crawlercommons.robots.SimpleRobotRules;
 import org.jsoup.Connection;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
@@ -12,7 +11,6 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
